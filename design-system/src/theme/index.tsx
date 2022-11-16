@@ -1,4 +1,4 @@
-import { colors, createTheme, Shadows } from "@mui/material";
+import { colors, createTheme, GlobalStyles, Shadows } from "@mui/material";
 import "typeface-lato";
 import "typeface-sacramento";
 
@@ -12,11 +12,23 @@ function overrideShadows(shadows: Partial<Record<number, string>>) {
 const theme = createTheme({
   typography: {
     fontFamily: "Lato, sans-serif",
+    h1: {
+      fontSize: "24px",
+      fontWeight: 700,
+    },
+    body1: {
+      fontSize: "14px",
+      fontWeight: 500,
+    },
   },
   shadows: overrideShadows({
     2: "1px 2px 2px rgba(217, 221, 228, 0.4)",
   }),
   palette: {
+    text: {
+      primary: "#141736",
+      secondary: "#61758F",
+    },
     primary: {
       main: "#6261B5",
     },
@@ -54,7 +66,20 @@ const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        body1: ({ theme }) => ({
+          color: theme.palette.text.secondary,
+        }),
+      },
+    },
   },
 });
+
+export const GlobalOverrides = () => (
+  <GlobalStyles
+    styles={{ body: { fontFamily: theme.typography.fontFamily } }}
+  />
+);
 
 export default theme;

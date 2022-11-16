@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@mui/material";
-import theme from "../src/theme/index";
+import theme, { GlobalOverrides } from "../src/theme/index";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -14,6 +14,7 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
+      <GlobalOverrides />
       <Story />
     </ThemeProvider>
   ),
