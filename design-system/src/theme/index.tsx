@@ -1,4 +1,10 @@
-import { colors, createTheme, GlobalStyles, Shadows } from "@mui/material";
+import {
+  colors,
+  createTheme,
+  GlobalStyles,
+  outlinedInputClasses,
+  Shadows,
+} from "@mui/material";
 import "typeface-lato";
 import "typeface-sacramento";
 
@@ -46,7 +52,16 @@ const theme = createTheme({
     error: {
       main: "#FA5F5F",
     },
+    action: {
+      active: "#7C8EA6",
+    },
+    background: {
+      default: "#F8F8FC",
+      light: "#F7F7FB",
+    },
+    divider: "#DBE0E6",
   },
+  shape: { borderRadius: 5 },
   components: {
     MuiButton: {
       defaultProps: {
@@ -66,10 +81,27 @@ const theme = createTheme({
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: ({ theme: { palette } }) => ({
+          backgroundColor: palette.background.light,
+          [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]:
+            { borderWidth: "1px" },
+        }),
+        input: {
+          padding: "10px 14px",
+          [`.${outlinedInputClasses.adornedStart} &`]: { paddingLeft: 0 },
+          [`.${outlinedInputClasses.adornedEnd} &`]: { paddingRight: 0 },
+        },
+        notchedOutline: ({ theme: { palette } }) => ({
+          borderColor: palette.divider,
+        }),
+      },
+    },
     MuiTypography: {
       styleOverrides: {
-        body1: ({ theme }) => ({
-          color: theme.palette.text.secondary,
+        body1: ({ theme: { palette } }) => ({
+          color: palette.text.secondary,
         }),
       },
     },
