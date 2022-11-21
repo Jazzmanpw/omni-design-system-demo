@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Box, Button as MuiButton } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { withGrid } from "./decorators";
 
 export default {
@@ -10,16 +10,12 @@ export default {
   args: { label: "" },
 };
 
-export const Button = ({ label, variant, size, state }) => (
-  <MuiButton
-    variant={variant}
-    size={size}
-    disabled={state.includes("disabled")}
-  >
+export const _Button = ({ label, variant, size, state }) => (
+  <Button variant={variant} size={size} disabled={state.includes("disabled")}>
     {label || "Button"}
-  </MuiButton>
+  </Button>
 );
-Button.argTypes = {
+_Button.argTypes = {
   size: {
     control: "inline-radio",
     description: "Button size",
@@ -38,7 +34,7 @@ Button.argTypes = {
     options: ["disabled"],
   },
 };
-Button.args = {
+_Button.args = {
   size: "default",
   variant: "default",
   state: [],
@@ -46,7 +42,7 @@ Button.args = {
 
 export const Variants = ({ label }) => (
   <Box sx={{ display: "flex", gap: ({ spacing }) => spacing(1) }}>
-    <MuiButton variant="contained">{label || "Contained"}</MuiButton>
+    <Button variant="contained">{label || "Contained"}</Button>
   </Box>
 );
 
@@ -54,9 +50,9 @@ export const Colors = ({ label }) => (
   <>
     {["contained"].map((variant) => (
       <Fragment key={variant}>
-        <MuiButton variant={variant} color="primary">
+        <Button variant={variant} color="primary">
           {label || "Primary"}
-        </MuiButton>
+        </Button>
       </Fragment>
     ))}
   </>
@@ -67,9 +63,9 @@ export const Sizes = ({ label }) => (
   <>
     {["contained"].map((variant) => (
       <Fragment key={variant}>
-        <MuiButton variant={variant} size="medium">
+        <Button variant={variant} size="medium">
           {label || "Medium"}
-        </MuiButton>
+        </Button>
       </Fragment>
     ))}
   </>
@@ -80,10 +76,10 @@ export const States = ({ label }) => (
   <>
     {["contained"].map((variant) => (
       <Fragment key={variant}>
-        <MuiButton variant={variant}>{label || "Normal"}</MuiButton>
-        <MuiButton variant={variant} disabled>
+        <Button variant={variant}>{label || "Normal"}</Button>
+        <Button variant={variant} disabled>
           {label || "Disabled"}
-        </MuiButton>
+        </Button>
       </Fragment>
     ))}
   </>

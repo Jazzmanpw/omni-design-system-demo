@@ -1,4 +1,4 @@
-import { Link, Typography as MuiTypography } from "@mui/material";
+import { Link, Typography as Typography } from "@mui/material";
 
 export default {
   title: "Atoms/Typography",
@@ -8,12 +8,12 @@ export default {
   args: { label: "" },
 };
 
-export const Typography = ({ label, variant, color, align }) => (
-  <MuiTypography variant={variant} color={color} align={align}>
+export const _Typography = ({ label, variant, color, align }) => (
+  <Typography variant={variant} color={color} align={align}>
     {label || "Typography"}
-  </MuiTypography>
+  </Typography>
 );
-Typography.argTypes = {
+_Typography.argTypes = {
   variant: {
     control: "select",
     options: [
@@ -53,33 +53,33 @@ Typography.argTypes = {
     options: ["center", "inherit", "justify", "left", "right"],
   },
 };
-Typography.args = { align: "inherit", color: "default" };
+_Typography.args = { align: "inherit", color: "default" };
 
 export const Variants = ({ label }) => (
   <>
-    <MuiTypography variant="h1">{label || "Heading 1"}</MuiTypography>
-    <MuiTypography variant="body1">
+    <Typography variant="h1">{label || "Heading 1"}</Typography>
+    <Typography variant="body1">
       {label || "Body 1 (usually of secondary color)"}
-    </MuiTypography>
+    </Typography>
   </>
 );
 
 export const Colors = ({ label }) => (
   <>
-    <MuiTypography variant="h1" color="textSecondary">
+    <Typography variant="h1" color="textSecondary">
       {label || "Text secondary"}
-    </MuiTypography>
-    <MuiTypography variant="body1" color="primary">
+    </Typography>
+    <Typography variant="body1" color="primary">
       {label || "Primary"}
-    </MuiTypography>
+    </Typography>
   </>
 );
 
 export const TypographyLink = ({ label }) => (
   <>
     <Link href="#">{label || "This is a link."}</Link>
-    <MuiTypography variant="body1">
+    <Typography variant="body1">
       And this is <Link href="#">{label || "a link"}</Link> within a text line.
-    </MuiTypography>
+    </Typography>
   </>
 );
