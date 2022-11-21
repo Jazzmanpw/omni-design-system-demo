@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button as MuiButton } from "@mui/material";
 import { withGrid } from "./decorators";
 
 export default {
@@ -10,9 +10,43 @@ export default {
   args: { label: "" },
 };
 
+export const Button = ({ label, variant, size, state }) => (
+  <MuiButton
+    variant={variant}
+    size={size}
+    disabled={state.includes("disabled")}
+  >
+    {label || "Button"}
+  </MuiButton>
+);
+Button.argTypes = {
+  size: {
+    control: "inline-radio",
+    description: "Button size",
+    options: ["default", "medium"],
+    mapping: { default: undefined },
+  },
+  variant: {
+    control: "inline-radio",
+    description: "Button variant",
+    options: ["default", "text", "contained", "outlined"],
+    mapping: { default: undefined },
+  },
+  state: {
+    description: "Button state",
+    control: "inline-check",
+    options: ["disabled"],
+  },
+};
+Button.args = {
+  size: "default",
+  variant: "default",
+  state: [],
+};
+
 export const Variants = ({ label }) => (
   <Box sx={{ display: "flex", gap: ({ spacing }) => spacing(1) }}>
-    <Button variant="contained">{label || "Contained"}</Button>
+    <MuiButton variant="contained">{label || "Contained"}</MuiButton>
   </Box>
 );
 
@@ -20,9 +54,9 @@ export const Colors = ({ label }) => (
   <>
     {["contained"].map((variant) => (
       <Fragment key={variant}>
-        <Button variant={variant} color="primary">
+        <MuiButton variant={variant} color="primary">
           {label || "Primary"}
-        </Button>
+        </MuiButton>
       </Fragment>
     ))}
   </>
@@ -33,9 +67,9 @@ export const Sizes = ({ label }) => (
   <>
     {["contained"].map((variant) => (
       <Fragment key={variant}>
-        <Button variant={variant} size="medium">
+        <MuiButton variant={variant} size="medium">
           {label || "Medium"}
-        </Button>
+        </MuiButton>
       </Fragment>
     ))}
   </>
@@ -46,10 +80,10 @@ export const States = ({ label }) => (
   <>
     {["contained"].map((variant) => (
       <Fragment key={variant}>
-        <Button variant={variant}>{label || "Normal"}</Button>
-        <Button variant={variant} disabled>
+        <MuiButton variant={variant}>{label || "Normal"}</MuiButton>
+        <MuiButton variant={variant} disabled>
           {label || "Disabled"}
-        </Button>
+        </MuiButton>
       </Fragment>
     ))}
   </>

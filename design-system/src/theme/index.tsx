@@ -26,6 +26,11 @@ const theme = createTheme({
       fontSize: "14px",
       fontWeight: 500,
     },
+    button: {
+      textTransform: "none",
+      fontSize: "14px",
+      fontWeight: 600,
+    },
   },
   shadows: overrideShadows({
     2: "1px 2px 2px rgba(217, 221, 228, 0.4)",
@@ -71,13 +76,8 @@ const theme = createTheme({
         // button uses shadows[2] by default
         // which should be used in hover/active states?
         // can we stop on the default shadow set?
-        root: {
-          textTransform: "none",
-        },
         containedSizeMedium: {
           padding: "6px 24px",
-          fontSize: "14px",
-          fontWeight: 600,
         },
       },
     },

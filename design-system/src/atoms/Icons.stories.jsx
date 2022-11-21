@@ -10,6 +10,7 @@ const iconsMap = {
 const iconLabels = Object.keys(iconsMap).sort();
 
 const colors = [
+  "default",
   "inherit",
   "action",
   "disabled",
@@ -21,30 +22,37 @@ const colors = [
   "warning",
 ];
 
-const fontSizes = ["inherit", "large", "medium", "small"];
+const fontSizes = ["default", "inherit", "small", "medium", "large"];
 
 export default {
   title: "Atoms/Icons",
   argTypes: {
     icon: {
       type: { required: true },
+      control: "select",
       options: iconLabels,
       mapping: iconsMap,
       description: "Icon to display",
     },
     color: {
       control: "select",
-      options: colors,
       description: "Colors that the icon can take from the theme",
+      options: colors,
+      mapping: { default: undefined },
     },
     fontSize: {
-      control: "select",
-      options: fontSizes,
+      control: "inline-radio",
       description: "Font size that controls the size of an icon",
+      options: fontSizes,
+      mapping: { default: undefined },
     },
   },
   args: { icon: iconLabels[0], color: colors[0], fontSize: 24 },
 };
+
+export const Icon = ({ icon: Component, color, fontSize }) => (
+  <Component color={color} sx={{ fontSize }} />
+);
 
 export const Icons = ({ color, fontSize }) => (
   <>
@@ -127,4 +135,4 @@ Sizes.argTypes = {
   },
 };
 Sizes.args = { containerFontSize: 14 };
-Sizes.decorators = [withGrid(4, "250px")];
+Sizes.decorators = [withGrid(5, "150px")];
