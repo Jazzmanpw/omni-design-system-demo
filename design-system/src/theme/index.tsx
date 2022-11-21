@@ -34,6 +34,8 @@ const theme = createTheme({
   },
   shadows: overrideShadows({
     2: "1px 2px 2px rgba(217, 221, 228, 0.4)",
+    3: "2px 2px 25px rgba(15, 20, 87, 0.08)",
+    4: "1px 1px 50px rgba(20, 23, 54, 0.08)",
   }),
   palette: {
     text: {
