@@ -24,6 +24,9 @@ const theme = createTheme({
     },
     body1: {
       fontSize: "14px",
+    },
+    subtitle1: {
+      fontSize: "14px",
       fontWeight: 500,
       color: palette.text.secondary,
     },
@@ -36,6 +39,7 @@ const theme = createTheme({
       textTransform: "uppercase",
       fontSize: "12px",
       fontWeight: 600,
+      lineHeight: "16px",
       color: palette.text.secondary,
     },
   }),
