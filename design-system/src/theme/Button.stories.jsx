@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import { Box, Button } from "@mui/material";
-import { withGrid } from "./decorators";
+import { withGrid } from "../utils/decorators";
 
 export default {
-  title: "Atoms/Button Demo",
+  title: "Atoms/Button",
   argTypes: {
     label: { control: "text", description: "Button label" },
   },
@@ -11,12 +11,7 @@ export default {
 };
 
 export const _Button = ({ label, variant, size, state }) => (
-  <Button
-    variant={variant}
-    size={size}
-    disabled={state.includes("disabled")}
-    fullWidth={state.includes("fullWidth")}
-  >
+  <Button variant={variant} size={size} disabled={state.includes("disabled")}>
     {label || "Button"}
   </Button>
 );
@@ -24,7 +19,7 @@ _Button.argTypes = {
   size: {
     control: "inline-radio",
     description: "Button size",
-    options: ["default", "small", "medium", "large"],
+    options: ["default", "medium"],
     mapping: { default: undefined },
   },
   variant: {
@@ -36,7 +31,7 @@ _Button.argTypes = {
   state: {
     description: "Button state",
     control: "inline-check",
-    options: ["disabled", "fullWidth"],
+    options: ["disabled"],
   },
 };
 _Button.args = {
@@ -47,72 +42,46 @@ _Button.args = {
 
 export const Variants = ({ label }) => (
   <Box sx={{ display: "flex", gap: ({ spacing }) => spacing(1) }}>
-    <Button variant="text">{label || "Text"}</Button>
     <Button variant="contained">{label || "Contained"}</Button>
-    <Button variant="outlined">{label || "Outlined"}</Button>
   </Box>
 );
 
 export const Colors = ({ label }) => (
   <>
-    {["text", "contained", "outlined"].map((variant) => (
+    {["contained"].map((variant) => (
       <Fragment key={variant}>
         <Button variant={variant} color="primary">
           {label || "Primary"}
         </Button>
-        <Button variant={variant} color="secondary">
-          {label || "Secondary"}
-        </Button>
-        <Button variant={variant} color="info">
-          {label || "Info"}
-        </Button>
-        <Button variant={variant} color="success">
-          {label || "Success"}
-        </Button>
-        <Button variant={variant} color="warning">
-          {label || "Warning"}
-        </Button>
-        <Button variant={variant} color="error">
-          {label || "Error"}
-        </Button>
       </Fragment>
     ))}
   </>
 );
-Colors.decorators = [withGrid(6)];
+Colors.decorators = [withGrid(1, "100px")];
 
 export const Sizes = ({ label }) => (
   <>
-    {["text", "contained", "outlined"].map((variant) => (
+    {["contained"].map((variant) => (
       <Fragment key={variant}>
-        <Button variant={variant} size="small">
-          {label || "Small"}
-        </Button>
         <Button variant={variant} size="medium">
           {label || "Medium"}
-        </Button>
-        <Button variant={variant} size="large">
-          {label || "Large"}
         </Button>
       </Fragment>
     ))}
   </>
 );
-Sizes.decorators = [withGrid(3, "100px")];
+Sizes.decorators = [withGrid(2, "100px")];
 
 export const States = ({ label }) => (
   <>
-    {["text", "contained", "outlined"].map((variant) => (
+    {["contained"].map((variant) => (
       <Fragment key={variant}>
         <Button variant={variant}>{label || "Normal"}</Button>
         <Button variant={variant} disabled>
           {label || "Disabled"}
         </Button>
-        <Button variant={variant} fullWidth>
-          {label || "Full width"}
-        </Button>
       </Fragment>
     ))}
   </>
 );
-States.decorators = [withGrid(3, "200px")];
+States.decorators = [withGrid(2, "200px")];

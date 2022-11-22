@@ -1,5 +1,5 @@
 import { VisibilityOffOutlined, VisibilityOutlined } from "@mui/icons-material";
-import { withGrid } from "./decorators";
+import { withGrid } from "../utils/decorators";
 import { Box } from "@mui/material";
 
 const iconsMap = {
