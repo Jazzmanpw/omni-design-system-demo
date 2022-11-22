@@ -1,72 +1,92 @@
-import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
+import { Box, IconButton, InputAdornment, OutlinedInput } from "@mui/material";
 import { VisibilityOutlined } from "@mui/icons-material";
 
 const adornments = ["text", "icon", "none"];
+
+const adornmentArgType = (icon) => ({
+  control: "inline-radio",
+  options: adornments,
+  mapping: {
+    text: "$",
+    icon,
+    none: null,
+  },
+});
+
+const startAdornmentArgType = adornmentArgType(
+  <IconButton edge="start">
+    <VisibilityOutlined />
+  </IconButton>
+);
+
+const endAdornmentArgType = adornmentArgType(
+  <IconButton edge="end">
+    <VisibilityOutlined />
+  </IconButton>
+);
 
 export default {
   title: "Atoms/Outlined Input",
 };
 
-export const SimpleInput = ({ value }) => (
-  <div>
-    <div>
-      Uncontrolled input <OutlinedInput />
-    </div>
-    <div>
-      Controlled input (by the <em>Value</em> control){" "}
-      <OutlinedInput value={value} />
-    </div>
-  </div>
-);
-SimpleInput.argTypes = {
-  value: { control: "text", description: "Input value" },
-};
-SimpleInput.args = { value: "" };
-
-export const StartAdornment = ({ adornment }) => (
+export const SimpleInput = ({ startAdornment, endAdornment }) => (
   <OutlinedInput
     startAdornment={
-      <InputAdornment position="start">{adornment}</InputAdornment>
+      startAdornment && (
+        <InputAdornment position="start">{startAdornment}</InputAdornment>
+      )
+    }
+    endAdornment={
+      endAdornment && (
+        <InputAdornment position="end">{endAdornment}</InputAdornment>
+      )
     }
   />
 );
-StartAdornment.argTypes = {
-  adornment: {
-    control: "select",
-    options: adornments,
-    type: { required: true },
-    mapping: {
-      text: "$",
-      icon: (
-        <IconButton edge="start">
-          <VisibilityOutlined />
-        </IconButton>
-      ),
-      none: null,
-    },
-  },
+SimpleInput.argTypes = {
+  startAdornment: startAdornmentArgType,
+  endAdornment: endAdornmentArgType,
 };
-StartAdornment.args = { adornment: adornments[0] };
+SimpleInput.args = { startAdornment: "none", endAdornment: "none" };
 
-export const EndAdornment = ({ adornment }) => (
-  <OutlinedInput
-    endAdornment={<InputAdornment position="end">{adornment}</InputAdornment>}
-  />
+export const StartAdornment = () => (
+  <Box>
+    <Box>
+      <OutlinedInput
+        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+      />
+    </Box>
+    <Box>
+      <OutlinedInput
+        startAdornment={
+          <InputAdornment position="start">
+            <IconButton edge="start">
+              <VisibilityOutlined />
+            </IconButton>
+          </InputAdornment>
+        }
+      />
+    </Box>
+  </Box>
 );
-EndAdornment.argTypes = {
-  adornment: {
-    control: "select",
-    options: adornments,
-    type: { required: true },
-    mapping: {
-      text: "$",
-      icon: (
-        <IconButton edge="end">
-          <VisibilityOutlined />
-        </IconButton>
-      ),
-      none: null,
-    },
-  },
-};
-EndAdornment.args = { adornment: adornments[0] };
+
+export const EndAdornment = () => (
+  <Box>
+    <Box>
+      <OutlinedInput
+        endAdornment={<InputAdornment position="end">$</InputAdornment>}
+      />
+    </Box>
+    <Box>
+      <OutlinedInput
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton edge="end">
+              <VisibilityOutlined />
+            </IconButton>
+          </InputAdornment>
+        }
+      />
+    </Box>
+  </Box>
+);

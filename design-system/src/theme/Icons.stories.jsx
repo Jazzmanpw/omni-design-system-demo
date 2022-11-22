@@ -22,7 +22,7 @@ const colors = [
   "warning",
 ];
 
-const fontSizes = ["default", "inherit", "small", "medium", "large"];
+const fontSizes = ["inherit", "small", "medium", "large"];
 
 export default {
   title: "Atoms/Icons",
@@ -44,14 +44,13 @@ export default {
       control: "inline-radio",
       description: "Font size that controls the size of an icon",
       options: fontSizes,
-      mapping: { default: undefined },
     },
   },
-  args: { icon: iconLabels[0], color: colors[0], fontSize: 24 },
+  args: { icon: iconLabels[0], color: colors[0], fontSize: "inherit" },
 };
 
 export const Icon = ({ icon: Component, color, fontSize }) => (
-  <Component color={color} sx={{ fontSize }} />
+  <Component color={color} fontSize={fontSize} />
 );
 
 export const Icons = ({ color, fontSize }) => (
@@ -67,7 +66,7 @@ export const Icons = ({ color, fontSize }) => (
             alignItems: "center",
           }}
         >
-          <Component color={color} sx={{ fontSize }} />
+          <Component color={color} fontSize={fontSize} />
           {label}
         </Box>
       );
@@ -91,7 +90,7 @@ export const Colors = ({ icon: Component, fontSize }) => (
               alignItems: "center",
             }}
           >
-            <Component color={color} sx={{ fontSize }} />
+            <Component color={color} fontSize={fontSize} />
             {color}
           </Box>
         );
@@ -128,11 +127,11 @@ export const Sizes = ({ icon: Component, color, containerFontSize }) => {
 Sizes.argTypes = {
   fontSize: { table: { disable: true } },
   containerFontSize: {
-    control: { min: 12, max: 104, step: 2 },
+    control: { type: "range", min: 12, max: 104, step: 2 },
     name: "container font size",
     description:
       'Font size for the wrapper to change the size of an icon with "size: inherit"',
   },
 };
-Sizes.args = { containerFontSize: 14 };
+Sizes.args = { containerFontSize: 16 };
 Sizes.decorators = [withGrid(5, "150px")];

@@ -36,17 +36,17 @@ export const Elevations = () => (
   >
     <Paper elevation={2} sx={{ gridArea: "1 / 3 / span 2 / span 1" }}>
       <Typography variant="h1">Elevation 2</Typography>
-      <Typography>Box/Button Shadow</Typography>
+      <Typography variant="subtitle1">Box/Button Shadow</Typography>
       Used for buttons, maybe somewhere else
     </Paper>
     <Paper elevation={3} sx={{ gridArea: "1 / 1 / span 5 / span 2" }}>
       <Typography variant="h1">Elevation 3</Typography>
-      <Typography>Main Shadow / v2</Typography>
+      <Typography variant="subtitle1">Main Shadow / v2</Typography>
       Seems to be used for papers
     </Paper>
     <Paper elevation={4} sx={{ gridArea: "3 / 3 / span 3 / span 1" }}>
       <Typography variant="h1">Elevation 4</Typography>
-      <Typography>Main Shadow / v1</Typography>
+      <Typography variant="subtitle1">Main Shadow / v1</Typography>
       Seems to be used for papers
     </Paper>
   </Box>
@@ -59,7 +59,9 @@ export const Variants = () => (
     </Typography>
     <Paper variant="outlined">
       <Typography variant="h1">Variant:outlined</Typography>
-      Used for Papers inside other papers (like list item rows)
+      <Typography>
+        Used for Papers inside other papers (like list item rows)
+      </Typography>
     </Paper>
   </Paper>
 );
