@@ -16,7 +16,7 @@ function overrideShadows(shadows: Partial<Record<number, string>>) {
 }
 
 const theme = createTheme({
-  typography: {
+  typography: (palette) => ({
     fontFamily: "Lato, sans-serif",
     h1: {
       fontSize: "24px",
@@ -25,13 +25,20 @@ const theme = createTheme({
     body1: {
       fontSize: "14px",
       fontWeight: 500,
+      color: palette.text.secondary,
     },
     button: {
       textTransform: "none",
       fontSize: "14px",
       fontWeight: 600,
     },
-  },
+    fieldLabel: {
+      textTransform: "uppercase",
+      fontSize: "12px",
+      fontWeight: 600,
+      color: palette.text.secondary,
+    },
+  }),
   shadows: overrideShadows({
     2: "1px 2px 2px rgba(217, 221, 228, 0.4)",
     3: "2px 2px 25px rgba(15, 20, 87, 0.08)",
@@ -97,13 +104,6 @@ const theme = createTheme({
         },
         notchedOutline: ({ theme: { palette } }) => ({
           borderColor: palette.divider,
-        }),
-      },
-    },
-    MuiTypography: {
-      styleOverrides: {
-        body1: ({ theme: { palette } }) => ({
-          color: palette.text.secondary,
         }),
       },
     },

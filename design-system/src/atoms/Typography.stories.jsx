@@ -1,4 +1,4 @@
-import { Link, Typography as Typography } from "@mui/material";
+import { Link, Stack, Typography as Typography } from "@mui/material";
 
 export default {
   title: "Atoms/Typography",
@@ -56,23 +56,33 @@ _Typography.argTypes = {
 _Typography.args = { align: "inherit", color: "default" };
 
 export const Variants = ({ label }) => (
-  <>
+  <Stack direction="column">
     <Typography variant="h1">{label || "Heading 1"}</Typography>
     <Typography variant="body1">
       {label || "Body 1 (usually of secondary color)"}
     </Typography>
-  </>
+    <Typography variant="button">{label || "Button"}</Typography>
+    <Typography variant="fieldLabel">
+      {label || "Field label (usually of secondary color)"}
+    </Typography>
+  </Stack>
 );
 
 export const Colors = ({ label }) => (
-  <>
+  <Stack direction="column">
     <Typography variant="h1" color="textSecondary">
       {label || "Text secondary"}
     </Typography>
-    <Typography variant="body1" color="primary">
+    <Typography variant="body1" color="warning.main">
+      {label || "Warning"}
+    </Typography>
+    <Typography variant="button" color="primary">
       {label || "Primary"}
     </Typography>
-  </>
+    <Typography variant="fieldLabel" color="error.main">
+      {label || "error.main"}
+    </Typography>
+  </Stack>
 );
 
 export const TypographyLink = ({ label }) => (
