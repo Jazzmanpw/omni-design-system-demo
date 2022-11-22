@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme, { GlobalOverrides } from "../src/theme/index";
 
 export const parameters = {
@@ -17,6 +17,10 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
+      {/* we have to use ScopedCssBaseline if we migrate to the newer version
+       * to not break the prev screens
+       */}
+      <CssBaseline />
       <GlobalOverrides />
       <Story />
     </ThemeProvider>

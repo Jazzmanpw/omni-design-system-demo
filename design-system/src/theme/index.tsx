@@ -116,7 +116,10 @@ const theme = createTheme({
 
 export const GlobalOverrides = () => (
   <GlobalStyles
-    styles={{ body: { fontFamily: theme.typography.fontFamily } }}
+    styles={{
+      body: { fontFamily: theme.typography.fontFamily },
+      fieldset: { margin: 0, padding: 0, border: "none" },
+    }}
   />
 );
 

@@ -15,6 +15,7 @@ export default function LabeledField({
 }: PropsWithChildren<LabeledFieldProps>) {
   return (
     <Stack
+      component="label"
       direction="row"
       alignItems={preventCenterAlignment ? undefined : "center"}
       gap={2}
