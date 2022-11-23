@@ -1,10 +1,15 @@
-import { VisibilityOffOutlined, VisibilityOutlined } from "@mui/icons-material";
+import {
+  Check,
+  VisibilityOffOutlined,
+  VisibilityOutlined,
+} from "@mui/icons-material";
 import { withGrid } from "../utils/decorators";
 import { Box } from "@mui/material";
 
 const iconsMap = {
   Visibility: VisibilityOutlined,
   "Visibility off": VisibilityOffOutlined,
+  Check: Check,
 };
 
 const iconLabels = Object.keys(iconsMap).sort();

@@ -98,7 +98,7 @@ export const Sizes = ({ label }) => (
     ))}
   </>
 );
-Sizes.decorators = [withGrid(3, "100px")];
+Sizes.decorators = [withGrid(3, "250px")];
 
 export const States = ({ label }) => (
   <>

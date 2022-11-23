@@ -28,11 +28,11 @@ const theme = createTheme({
     subtitle1: {
       fontSize: "14px",
       fontWeight: 500,
+      lineHeight: 1.2,
       color: palette.text.secondary,
     },
     button: {
       textTransform: "none",
-      fontSize: "14px",
       fontWeight: 600,
     },
     fieldLabel: {
@@ -92,7 +92,13 @@ const theme = createTheme({
         containedSizeMedium: {
           padding: "6px 24px",
         },
+        containedSizeLarge: {
+          padding: "8px 64px",
+        },
       },
+    },
+    MuiLink: {
+      defaultProps: { underline: "hover" },
     },
     MuiOutlinedInput: {
       styleOverrides: {
@@ -109,6 +115,11 @@ const theme = createTheme({
         notchedOutline: ({ theme: { palette } }) => ({
           borderColor: palette.divider,
         }),
+      },
+    },
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: { subtitle1: "p" },
       },
     },
   },

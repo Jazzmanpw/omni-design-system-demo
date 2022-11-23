@@ -9,8 +9,11 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  storySort: {
-    method: "alphabetical",
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: ["Atoms", "Molecules", "Organisms", "Templates", "Pages"],
+    },
   },
 };
 

@@ -58,8 +58,9 @@ _Typography.args = { align: "inherit", color: "default" };
 export const Variants = ({ label }) => (
   <Stack direction="column">
     <Typography variant="h1">{label || "Heading 1"}</Typography>
-    <Typography variant="body1">
-      {label || "Body 1 (usually of secondary color)"}
+    <Typography variant="body1">{label || "Body 1"}</Typography>
+    <Typography variant="subtitle1">
+      {label || "Subtitle 1 (usually of secondary color)"}
     </Typography>
     <Typography variant="button">{label || "Button"}</Typography>
     <Typography variant="fieldLabel">
@@ -75,6 +76,9 @@ export const Colors = ({ label }) => (
     </Typography>
     <Typography variant="body1" color="warning.main">
       {label || "Warning"}
+    </Typography>
+    <Typography variant="subtitle1" color="success.main">
+      {label || "Success"}
     </Typography>
     <Typography variant="button" color="primary">
       {label || "Primary"}

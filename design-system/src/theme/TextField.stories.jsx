@@ -1,7 +1,7 @@
 import { Box, Stack, TextField } from "@mui/material";
 
 export default {
-  title: "Molecules/Text Field",
+  title: "Molecules/Text Field/Native",
 };
 
 export const _TextField = ({ placeholder, helperText, error, fullWidth }) => (
