@@ -1,4 +1,5 @@
 import UnorderedList from "./UnorderedList";
+import { Box, Stack } from "@mui/material";
 
 export default {
   title: "Molecules/Unordered List",
@@ -64,3 +65,20 @@ _UnorderedList.args = {
   successItems: [2, 3],
   color: ["inherit"],
 };
+
+export const AllUncheckedWidth = () => (
+  <Stack gap={2}>
+    <Box>
+      <UnorderedList>
+        <UnorderedList.Item checked>Item 1</UnorderedList.Item>
+        <UnorderedList.Item checked>Item 2</UnorderedList.Item>
+      </UnorderedList>
+    </Box>
+    <Box>
+      <UnorderedList>
+        <UnorderedList.Item>Item 1</UnorderedList.Item>
+        <UnorderedList.Item>Item 2</UnorderedList.Item>
+      </UnorderedList>
+    </Box>
+  </Stack>
+);

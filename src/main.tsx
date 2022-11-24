@@ -1,10 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from "react";
+import App from "./App";
+import { ThemeProvider } from "@mui/material";
+import { GlobalOverrides, theme } from "../design-system";
+import ReactDOM from "react-dom";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+    <ThemeProvider theme={theme}>
+      <GlobalOverrides />
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
+  document.getElementById("root") as HTMLElement
+);

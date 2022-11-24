@@ -2,13 +2,13 @@ import { styled, Typography } from "@mui/material";
 import { PropsWithChildren } from "react";
 import { Check } from "@mui/icons-material";
 
-const UnorderedListStyled = styled(Typography, { name: "UnorderedList" })(
-  ({ theme: { spacing } }) => ({
-    display: "grid",
-    gridTemplateColumns: "auto 1fr",
-    columnGap: spacing(1),
-  })
-);
+const UnorderedListStyled = styled("div", {
+  name: "UnorderedList",
+})(({ theme: { spacing } }) => ({
+  display: "grid",
+  gridTemplateColumns: "1em 1fr",
+  columnGap: spacing(1),
+}));
 
 const Item = ({
   children,
