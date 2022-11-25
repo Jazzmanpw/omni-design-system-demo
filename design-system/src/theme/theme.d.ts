@@ -3,23 +3,23 @@ import React from "react";
 export {};
 
 declare module "@mui/material/styles/createPalette" {
-  interface TypeBackground {
+  export interface TypeBackground {
     light: string;
   }
 }
 
 declare module "@mui/material/styles" {
-  interface TypographyVariants {
+  export interface TypographyVariants {
     fieldLabel: React.CSSProperties;
   }
 
-  interface TypographyVariantsOptions {
+  export interface TypographyVariantsOptions {
     fieldLabel: React.CSSProperties;
   }
 }
 
 declare module "@mui/material/Typography" {
-  interface TypographyPropsVariantOverrides {
+  export interface TypographyPropsVariantOverrides {
     fieldLabel: true;
   }
 }

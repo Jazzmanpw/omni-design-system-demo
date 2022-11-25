@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { SectionTitles } from "../design-system";
+import { LabeledField, SectionTitles } from "../design-system";
 import { Box, Button, Link as MuiLink, Stack, TextField } from "@mui/material";
-import LabeledField from "../design-system/src/components/LabeledField";
 import { Link } from "react-router-dom";
 
 export default function ResetPasswordPage() {
