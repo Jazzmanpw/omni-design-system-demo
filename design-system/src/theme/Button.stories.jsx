@@ -19,7 +19,7 @@ _Button.argTypes = {
   size: {
     control: "inline-radio",
     description: "Button size",
-    options: ["default", "medium"],
+    options: ["default", "medium", 'large'],
     mapping: { default: undefined },
   },
   variant: {
@@ -65,6 +65,9 @@ export const Sizes = ({ label }) => (
       <Fragment key={variant}>
         <Button variant={variant} size="medium">
           {label || "Medium"}
+        </Button>
+        <Button variant={variant} size="large">
+          {label || "Large"}
         </Button>
       </Fragment>
     ))}
