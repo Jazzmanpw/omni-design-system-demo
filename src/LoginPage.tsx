@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
-  const { register, handleSubmit, control } = useForm({
+  const { register, handleSubmit, control, errors, setError } = useForm({
     defaultValues: { username: "", password: "" },
   });
   const formData = useWatch({ control });
@@ -22,22 +22,40 @@ export default function LoginPage() {
         title="Sign in to your workspace:"
         subtitle="storybook.omnihr.co"
       />
-      <Box mt={6} component="form" onSubmit={handleSubmit(console.log)}>
+      <Box
+        mt={6}
+        component="form"
+        onSubmit={handleSubmit((data) => {
+          if (data.password === "wrongpass") {
+            setError("username", { type: "manual" });
+            setError("password", {
+              type: "manual",
+              message: "You have entered an invalid email or password.",
+            });
+          } else {
+            console.log(data);
+          }
+        })}
+      >
         <Stack gap={1} mt={4} mb={5}>
-          <LabeledField label="Email">
+          <LabeledField label="Email" preventCenterAlignment>
             <TextField
               name="username"
               inputRef={register}
               fullWidth
               placeholder="Type your email"
+              error={Boolean(errors.username)}
+              helperText={errors.username?.message}
             />
           </LabeledField>
-          <LabeledField label="Password">
+          <LabeledField label="Password" preventCenterAlignment>
             <PasswordField
               name="password"
               inputRef={register}
               fullWidth
               placeholder="Type your password"
+              error={Boolean(errors.password)}
+              helperText={errors.password?.message}
             />
           </LabeledField>
         </Stack>
