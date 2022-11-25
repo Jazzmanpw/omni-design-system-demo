@@ -26,7 +26,9 @@ const EntryPaper = styled(Paper, { name: "OmniPublicRouteContainer-Paper" })(
   })
 );
 
-export default function PublicRouteContainer({ children }: PropsWithChildren) {
+export default function PublicRouteContainer({
+  children,
+}: PropsWithChildren<unknown>) {
   return (
     <Background>
       <Box ml={4} width={105}>
