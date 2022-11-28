@@ -1,6 +1,6 @@
 import { Box, Paper, styled, SvgIcon } from "@mui/material";
-import omniEntry from "../../assets/img/omniEntry.svg";
-import { ReactComponent as OmniLogo } from "../../assets/img/omniLogo.svg";
+import omniEntry from "../assets/img/omniEntry.svg";
+import { ReactComponent as OmniLogo } from "../assets/img/omniLogo.svg";
 import { PropsWithChildren } from "react";
 
 console.log({ ...OmniLogo });
