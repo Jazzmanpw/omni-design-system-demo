@@ -20,7 +20,7 @@ Voilà! The storybook server is running, and you may explore what's been built.
 
 ## Explore the stories
 
-You don't have to run the storybook locally. You may find the published version [here](https://63808dbddcc903dc6453d28c-cobleqrfxm.chromatic.com/)
+You don't have to run the storybook locally. You may find the published version [here](https://63808dbddcc903dc6453d28c-hysruwuugf.chromatic.com/)
 
 In the left menu, you may see _Atoms_, _Molecules_, _Organisms_, _Templates_ and _Pages_. For a deeper explanation, you may refer to the [original source of Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/). In general,
 
@@ -32,7 +32,7 @@ In the left menu, you may see _Atoms_, _Molecules_, _Organisms_, _Templates_ and
 
 I want to emphasize that these categories relate only to design, and they don't have to be reflected in project file structure or something along those lines.
 
-There's one specific story for buttons that shows how we could organize our stories to display [all the variations of a button](https://63808dbddcc903dc6453d28c-cobleqrfxm.chromatic.com/?path=/docs/atoms-button-demo--button). It doesn't have all the variants set up properly, it's rather a demonstration of the depth we could achieve in terms of variations design.
+There's one specific story for buttons that shows how we could organize our stories to display [all the variations of a button](https://63808dbddcc903dc6453d28c-hysruwuugf.chromatic.com/?path=/docs/atoms-button-demo--button). It doesn't have all the variants set up properly, it's rather a demonstration of the depth we could achieve in terms of variations design.
 
 All the other stories describe the elements actually used to build the screens you may see in the [demo app](../README.md).
 

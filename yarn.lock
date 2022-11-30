@@ -806,12 +806,6 @@ debug@^4.1.0:
   dependencies:
     ms "2.1.2"
 
-design-system@./design-system:
-  version "0.1.0"
-  dependencies:
-    typeface-lato "^1.1.13"
-    typeface-sacramento "^1.1.13"
-
 dom-helpers@^5.0.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-5.2.1.tgz#d9400536b2bf8225ad98fe052e029451ac40e902"
